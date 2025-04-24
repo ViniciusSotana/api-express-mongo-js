@@ -1,8 +1,6 @@
 import mongoose from "mongoose"
 
-const uri = process.env.STRING_CONEXAO_DB;
-
-mongoose.connect(uri)
+mongoose.connect(process.env.STRING_CONEXAO_DB)
   .then(() => {
     console.log("Conexão com o MongoDB realizada com sucesso!");
   })
