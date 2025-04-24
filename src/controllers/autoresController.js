@@ -6,6 +6,11 @@ class AutorController {
     try {
       const autoresResultado = await autores.find();
 
+      if (autoresResultado.length === 0) {
+        return res.status(404).json({ message: "Nenhum autor encontrado." });
+      }
+  
+
       res.status(200).json(autoresResultado);
       
   } catch (erro) {

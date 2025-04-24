@@ -1,6 +1,14 @@
 import mongoose from "mongoose"
 
-mongoose.connect("mongodb+srv://alura:123@alura.dkjed.mongodb.net/alura-node");
+const uri = process.env.STRING_CONEXAO_DB;
+
+mongoose.connect(uri)
+  .then(() => {
+    console.log("Conexão com o MongoDB realizada com sucesso!");
+  })
+  .catch((err) => {
+    console.log("Erro na conexão com o MongoDB:", err);
+  });
 
 let db = mongoose.connection;
 
